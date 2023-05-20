@@ -26,7 +26,6 @@ public:
     int residentNumber;
 };
 
-// TODO: 만들어놓고 클래스 나누기
 class AuthSystem {
 private:
 
@@ -36,10 +35,10 @@ private:
     int accountNum = -1; // vector index
 
 public:
-    bool Login(ifstream& fin, ofstream& fout);
-    bool Register(ifstream& fin, ofstream& fout);
-    bool Logout(ifstream& fin, ofstream& fout);
-    bool Withdraw(ifstream& fin, ofstream& fout);
+    void Login(ifstream& fin, ofstream& fout);
+    void Register(ifstream& fin, ofstream& fout);
+    void Logout(ifstream& fin, ofstream& fout);
+    void Withdraw(ifstream& fin, ofstream& fout);
     Account getAccountInfo();
 };
 

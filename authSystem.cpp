@@ -4,7 +4,7 @@
 
 #include "authSystem.h"
 
-bool AuthSystem::Register(ifstream& fin, ofstream& fout) {
+void AuthSystem::Register(ifstream& fin, ofstream& fout) {
     int type;
     fin >> type;
 
@@ -15,25 +15,23 @@ bool AuthSystem::Register(ifstream& fin, ofstream& fout) {
     } else if (type == 2) {
         fin >> newAccount.name >> newAccount.residentNumber >> newAccount.id >> newAccount.password;
     }
-    
+
     accounts.push_back(newAccount);
 
-    return true;
 }
 
-bool AuthSystem::Login(ifstream& fin, ofstream& fout) {
+void AuthSystem::Login(ifstream& fin, ofstream& fout) {
 
-    return true;
 }
 
-bool AuthSystem::Logout(ifstream& fin, ofstream& fout) {
+void AuthSystem::Logout(ifstream& fin, ofstream& fout) {
 
-    return true;
+
 }
 
-bool AuthSystem::Withdraw(ifstream& fin, ofstream& fout) {
+void AuthSystem::Withdraw(ifstream& fin, ofstream& fout) {
 
-    return true;
+
 }
 
 
