@@ -7,25 +7,31 @@
 
 #include <vector>
 #include <string>
+#include <fstream>
+
+#include "authSystem.h"
 
 using namespace std;
 
 class JobInformation {
-    int ownerNum; // 작성자 ID
+public:
+    string ownerNum; // 작성자 ID
     string companyName; // 회사 이름
     int businessNum; // 사업자 번호
     string work; // 업무
     int numOfPeople; // 인원 수
-    int deadline; // 신청 마감일
+    string deadline; // 신청 마감일
 };
+
 
 class JobInformationSystem {
 private:
     vector<JobInformation> jobInformations; // key
+    AuthSystem authSystem;
 
 public:
-    void JobPostingRegistration();
-    void MyJobPosting();
+    void JobPostingRegistration(ifstream& fin, ofstream& fout);
+    void MyJobPosting(ifstream& fin, ofstream& fout);
     JobInformation Search();
     void Apply();
     void ApplyInfo();
