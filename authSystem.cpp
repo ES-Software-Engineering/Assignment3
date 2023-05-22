@@ -4,8 +4,9 @@
 #include <iostream>
 
 #include "authSystem.h"
+#include "jobInformationSystem.h"
 
-void AuthSystem::Register(ifstream& fin, ofstream& fout) {
+void AuthSystem::Register(ifstream& fin, ofstream& fout, JobInformationSystem *jobInformationSystem) {
     fout << "1.1 회원가입" << endl;
 
     int type;
@@ -21,6 +22,7 @@ void AuthSystem::Register(ifstream& fin, ofstream& fout) {
         fout << "> " << type << ' ' << newAccount.name << ' ' << newAccount.residentNumber << ' ' << newAccount.id << ' ' << newAccount.password << endl;
     }
     accounts.push_back(newAccount);
+    jobInformationSystem->AddNewApplyment();
 }
 
 void AuthSystem::Login(ifstream& fin, ofstream& fout) {
@@ -39,14 +41,8 @@ void AuthSystem::Login(ifstream& fin, ofstream& fout) {
 
 void AuthSystem::Logout(ifstream& fin, ofstream& fout) {
     fout << "2.2 로그아웃" << endl;
-
-    string id;
-    fin >> id;
-
-    if (accounts[accountNum].id == id) {
-        fout << "> " << accounts[accountNum].id << endl;
-        accountNum = -1; // logout
-    }
+    fout << "> " << accounts[accountNum].id << endl;
+    accountNum = -1; // logout
 }
 
 void AuthSystem::Withdraw(ifstream& fin, ofstream& fout) {
@@ -66,4 +62,8 @@ void AuthSystem::Withdraw(ifstream& fin, ofstream& fout) {
 
 Account AuthSystem::getAccountInfo() {
     return accounts[accountNum];
+}
+
+int AuthSystem::getAccountNum() { 
+    return accountNum;
 }

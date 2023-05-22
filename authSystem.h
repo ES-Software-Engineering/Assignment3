@@ -10,6 +10,8 @@
 #include <string>
 #include <fstream>
 
+class JobInformationSystem;
+
 using namespace std;
 
 class Account {
@@ -36,10 +38,11 @@ private:
 
 public:
     void Login(ifstream& fin, ofstream& fout);
-    void Register(ifstream& fin, ofstream& fout);
+    void Register(ifstream& fin, ofstream& fout, JobInformationSystem* jobInformationSystem);
     void Logout(ifstream& fin, ofstream& fout);
     void Withdraw(ifstream& fin, ofstream& fout);
     Account getAccountInfo();
+    int getAccountNum();
 };
 
 
