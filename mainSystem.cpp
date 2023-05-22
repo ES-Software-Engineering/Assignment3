@@ -20,11 +20,11 @@ void MainSystem::run() {
         } else if (menuLv1 == 2 && menuLv2 == 2) { // 로그아웃
             authSystem.Logout(fin, fout);
         } else if (menuLv1 == 3 && menuLv2 == 1) { // 채용 정보 등록
-            jobInformationSystem.JobPostingRegistration();
+            jobInformationSystem.JobPostingRegistration(fin, fout, authSystem);
         } else if (menuLv1 == 3 && menuLv2 == 2) { // 등록된 채용 정보 조회
-            jobInformationSystem.MyJobPosting();
+            jobInformationSystem.MyJobPosting(fin, fout, authSystem);
         } else if (menuLv1 == 4 && menuLv2 == 1) { // 채용 정보 검색
-            jobInformationSystem.Search();
+            jobInformationSystem.Search(fin, fout, authSystem);
         } else if (menuLv1 == 4 && menuLv2 == 2) { // 채용 지원
             jobInformationSystem.Apply();
         } else if (menuLv1 == 4 && menuLv2 == 3) { // 지원 정보 조회
