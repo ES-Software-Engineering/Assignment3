@@ -9,6 +9,8 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <algorithm>
+
 
 #include "authSystem.h"
 
@@ -90,14 +92,15 @@ public:
 class JobInformationSystem {
 private:
     vector<JobInformation> jobInformations; // key
+    vector<vector<JobInformation> > appliedJobInformations; // 지원한 채용 목록
 
 public:
     void JobPostingRegistration(ifstream& fin, ofstream& fout, AuthSystem authSystem);
     void MyJobPosting(ifstream& fin, ofstream& fout, AuthSystem authSystem);
-    JobInformation Search(ifstream& fin, ofstream& fout, AuthSystem authSystem);
-    void Apply();
-    void ApplyInfo();
-    void WithdrawApply();
+    void Search(ifstream& fin, ofstream& fout);
+    void Apply(ifstream& fin, ofstream& fout, AuthSystem authSystem);
+    void ApplyInfo(ifstream& fin, ofstream& fout, AuthSystem authSystem);
+    void AddNewApplyment();
 };
 
 
